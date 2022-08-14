@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import moment from "moment";
 import { Icon } from "@iconify/react";
 
 const App = () => {
-  const time = new Date();
-  const [num1, setnum] = useState(0);
+  const [time, setTime] = useState(Date.now());
+
+useEffect(() => {
+  const interval = setInterval(() => setTime(Date.now()), 1000);
+  return () => {
+    clearInterval(interval);
+  };
+}, []);
+  const [num1, setnum] = useState('0');
   return (
     <div className="bg-stone-300 overflow-y-hidden w-full h-screen flex items-center absolute justify-center">
       <div className=" w-auto   calculator_shadow2 relative z-[9999]">
@@ -16,10 +23,9 @@ const App = () => {
                 <div className="h-1 w-4 bg-black rounded-full "></div>
                 <div className="h-1 w-1 bg-black rounded-full "></div>
               </div>
-              
             </div>
             <div className="flex flex-row ">
-            <Icon icon="ant-design:signal-filled" className="mt-1 ml-4" />
+              <Icon icon="ant-design:signal-filled" className="mt-1 ml-4" />
               <Icon icon="akar-icons:wifi" className="h-4 w-4 mt-0.5 ml-1" />
               <Icon
                 icon="akar-icons:battery-medium"
@@ -34,19 +40,23 @@ const App = () => {
           />
 
           <div className="mt-6 grid grid-cols-4 gap-4 text-xl">
-            <div className=" calculator_shadow3 w-full h-16 flex items-center justify-center">
-              <button className="">AC</button>
+            <div className=" calculator_shadow3 w-full h-full flex items-center justify-center">
+              <button className=""  onClick={()=>setnum('0')}>AC</button>
             </div>
-            <div className="  calculator_shadow3  w-full h-16 flex items-center justify-center">
-              <button className="">
+            <div className="  calculator_shadow3  w-full h-full flex items-center justify-center">
+              <button className="" onClick={()=>setnum(num1.length==1 ?'0': num1.slice(0,-1))}>
                 <Icon icon="bi:backspace-fill" className="w-5 h-5" />
               </button>
             </div>
-            <div className="  calculator_shadow3  w-full h-16 flex items-center justify-center">
-              <button className="">%</button>
+            <div className="  calculator_shadow3  w-full h-full flex items-center justify-center">
+              <button className="" >%</button>
             </div>
             <div className=" calculator_shadow3 w-full h-16 flex items-center justify-center">
-              <button className="">
+              <button className="" onClick={()=>
+                setnum(
+                  num1=='0' ?"0":num1+'÷'
+                )
+              }>
                 <Icon icon="fa6-solid:divide" className="h-4 w-4" />
               </button>
             </div>
@@ -69,7 +79,32 @@ const App = () => {
               ".",
               "+",
             ].map((e) => (
-              <div className="mt-2 calculator_shadow3 w-full h-16 flex items-center justify-center">
+              <div
+              onClick={
+                ()=>{
+                  if(e=='='){
+                   setnum( eval(num1.replace('x','*').replace('%','/100').replace("÷",'/')))
+                  }
+                  else if(e=='-'||e=='+'||e=='x' ){
+                    setnum(
+                      num1=='0' ?"0":num1+e
+                    )
+                  }
+                  else if(e=='.'){
+                    setnum(num1+e)
+                  }
+                  else{
+                    setnum(
+                      (num1=='0' ?"":num1)+e
+                    )
+                  }
+
+                  
+              }}
+                className={`mt-2 calculator_shadow3 w-full h-full flex items-center justify-center aspect aspect-square ${
+                  e == "=" && "row-span-2"
+                }`}
+              >
                 {e}
               </div>
             ))}
