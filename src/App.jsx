@@ -1,19 +1,35 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { Icon } from "@iconify/react";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import 'animate.css';
 
 const App = () => {
   const [time, setTime] = useState(Date.now());
 
-useEffect(() => {
-  const interval = setInterval(() => setTime(Date.now()), 1000);
-  return () => {
-    clearInterval(interval);
-  };
-}, []);
-  const [num1, setnum] = useState('0');
+  useEffect(() => {
+    const interval = setInterval(() => setTime(Date.now()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+  const [num1, setnum] = useState("0");
   return (
     <div className="bg-stone-300 overflow-y-hidden w-full h-screen flex items-center absolute justify-center">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      
       <div className=" w-auto   calculator_shadow2 relative z-[9999]">
         <div className="p-5">
           <div className="flex flex-row text-sm justify-between">
@@ -41,22 +57,28 @@ useEffect(() => {
 
           <div className="mt-6 grid grid-cols-4 gap-4 text-xl">
             <div className=" calculator_shadow3 w-full h-full flex items-center justify-center">
-              <button className=""  onClick={()=>setnum('0')}>AC</button>
+              <button className="" onClick={() => setnum("0")}>
+                AC
+              </button>
             </div>
             <div className="  calculator_shadow3  w-full h-full flex items-center justify-center">
-              <button className="" onClick={()=>setnum(num1.length==1 ?'0': num1.slice(0,-1))}>
+              <button
+                className=""
+                onClick={() =>
+                  setnum(num1.length == 1 ? "0" : num1.slice(0, -1))
+                }
+              >
                 <Icon icon="bi:backspace-fill" className="w-5 h-5" />
               </button>
             </div>
             <div className="  calculator_shadow3  w-full h-full flex items-center justify-center">
-              <button className="" >%</button>
+              <button className="">%</button>
             </div>
             <div className=" calculator_shadow3 w-full h-16 flex items-center justify-center">
-              <button className="" onClick={()=>
-                setnum(
-                  num1=='0' ?"0":num1+'÷'
-                )
-              }>
+              <button
+                className=""
+                onClick={() => setnum(num1 == "0" ? "0" : num1 + "÷")}
+              >
                 <Icon icon="fa6-solid:divide" className="h-4 w-4" />
               </button>
             </div>
@@ -80,27 +102,31 @@ useEffect(() => {
               "+",
             ].map((e) => (
               <div
-              onClick={
-                ()=>{
-                  if(e=='='){
-                   setnum( eval(num1.replace('x','*').replace('%','/100').replace("÷",'/')))
+                onClick={() => {
+                  if (e == "=") {
+                    try{
+                      setnum(
+                        eval(
+                          num1
+                            .replace("x", "*")
+                            .replace("%", "/100")
+                            .replace("÷", "/")
+                        )
+                      );
+                    }
+                    catch(error){
+                      if(error instanceof SyntaxError){
+                      toast("🦄 error,use brain lah=)")
+                      }
+                    }
+                  } else if (e == "-" || e == "+" || e == "x") {
+                    setnum(num1 == "0" ? "0" : num1 + e);
+                  } else if (e == ".") {
+                    setnum(num1 + e);
+                  } else {
+                    setnum((num1 == "0" ? "" : num1) + e);
                   }
-                  else if(e=='-'||e=='+'||e=='x' ){
-                    setnum(
-                      num1=='0' ?"0":num1+e
-                    )
-                  }
-                  else if(e=='.'){
-                    setnum(num1+e)
-                  }
-                  else{
-                    setnum(
-                      (num1=='0' ?"":num1)+e
-                    )
-                  }
-
-                  
-              }}
+                }}
                 className={`mt-2 calculator_shadow3 w-full h-full flex items-center justify-center aspect aspect-square ${
                   e == "=" && "row-span-2"
                 }`}
@@ -120,9 +146,10 @@ useEffect(() => {
           ></path>
         </svg>
       </div>
+      <div className="absolute"></div>
       <Icon
         icon="charm:face-smile"
-        className="hover:animate-spin absolute left-2 top-2 h-96 w-96 text-stone-400"
+        className="hover:animate-spin absolute left-2 top-2 h-96 w-96 text-stone-400 "
       />
     </div>
   );
