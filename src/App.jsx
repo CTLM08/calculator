@@ -30,12 +30,12 @@ const App = () => {
         pauseOnHover
       />
 
-      <div className=" w-auto   calculator_shadow2 relative z-[9999]">
+      <div className="w-64 md:w-auto   calculator_shadow2 relative z-[9999]">
         <div className="p-5">
           <div className="flex flex-row text-sm justify-between">
-            <div className="gap-14 flex flex-row">
+            <div className="gap-8 md:gap-14 flex flex-row">
               <div className="mt-1">{moment(time).format("hh:mm")}</div>
-              <div className="gap-1 mt-2.5 flex flex-row ml-11">
+              <div className="gap-1 mt-2.5 flex flex-row ml-5 md:ml-11">
                 <div className="h-1 w-4 bg-black rounded-full "></div>
                 <div className="h-1 w-1 bg-black rounded-full "></div>
               </div>
@@ -52,16 +52,16 @@ const App = () => {
           <input
             value={num1}
             disabled
-            className="input2 w-full mt-3   rounded-xl h-20 flex items-center text-right p-5 text-2xl"
+            className="input2 w-full mt-3   rounded-xl h-10 md:h-20 flex items-center text-right p-5 text-2xl"
           />
 
           <div className="mt-6 grid grid-cols-4 gap-4 text-xl">
-            <div className=" calculator_shadow3 w-full h-full flex items-center justify-center">
+            <div className=" calculator_shadow3 w-full h-full flex items-center justify-center  aspect aspect-square">
               <button className="" onClick={() => setnum("0")}>
                 AC
               </button>
             </div>
-            <div className="  calculator_shadow3  w-full h-full flex items-center justify-center">
+            <div className="  calculator_shadow3  w-full h-full flex items-center justify-center  aspect aspect-square">
               <button
                 className=""
                 onClick={() =>
@@ -71,10 +71,12 @@ const App = () => {
                 <Icon icon="bi:backspace-fill" className="w-5 h-5" />
               </button>
             </div>
-            <div className="  calculator_shadow3  w-full h-full flex items-center justify-center">
-              <button className="">%</button>
+            <div className="  calculator_shadow3  w-full h-full flex items-center justify-center  aspect aspect-square">
+              <button className="" onClick={()=>{
+                setnum(num1=='0' ?'0':num1+'%')
+              }}>%</button>
             </div>
-            <div className=" calculator_shadow3 w-full h-16 flex items-center justify-center">
+            <div className=" calculator_shadow3 w-full h-full flex items-center justify-center  aspect aspect-square">
               <button
                 className=""
                 onClick={() => setnum(num1 == "0" ? "0" : num1 + "÷")}
@@ -114,9 +116,9 @@ const App = () => {
                         )
                       );
                     } catch (error) {
-                      if (error instanceof SyntaxError) {
+                     
                         toast("🦄 error,use brain lah=)");
-                      }
+                      
                     }
                   } else if (e == "-" || e == "+" || e == "x") {
                     setnum(num1 == "0" ? "0" : num1 + e);
@@ -136,7 +138,7 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="w-full absolute bottom-48">
+      <div className="w-full absolute bottom-16 md:bottom-48">
       <div class="c">
         
 <div class="card-home ">
@@ -162,7 +164,7 @@ const App = () => {
       <div className="absolute"></div>
       <Icon
         icon="charm:face-smile"
-        className="hover:animate-spin absolute left-2 top-2 h-96 w-96 text-stone-400 "
+        className="hover:animate-spin absolute left-2 top-2 h-32 w-32 md:h-96 md:w-96 text-stone-400 "
       />
     </div>
   );
