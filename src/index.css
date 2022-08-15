@@ -47,3 +47,39 @@ background: linear-gradient(145deg, #f0f0f0, #cacaca);
 box-shadow:  18px 18px 43px #bcbcbc,
              -18px -18px 43px #ffffff;
 }
+.wave{
+    position:relative;
+    float:left;
+    width: 100vw;
+    height: 225px;
+    overflow:hidden;
+  }
+  
+  .move{
+    position:absolute;
+      left:0;
+    display: flex;
+        animation: scroll 10s linear 1s infinite;
+  }
+  .bruh {
+    width: 100vw;
+  }
+  
+  @keyframes  scroll {
+      100% { left: -100vw; }  /* top is the number of spans (in this case 8) multiplied by span height (45px as described above)*/
+  }
+  .card-home{
+    position:absolute;
+      left:0;
+    display: flex;
+        animation: scroll 10s linear 1s infinite;
+  }
+  
+  
+  .svg {
+    width: 100vw;
+  }
+  
+  @keyframes scroll {
+      100% { left: -100vw; }  /* top is the number of spans (in this case 8) multiplied by span height (45px as described above)*/
+  }

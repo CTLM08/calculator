@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import 'animate.css';
+import "animate.css";
 
 const App = () => {
   const [time, setTime] = useState(Date.now());
@@ -29,7 +29,7 @@ const App = () => {
         draggable
         pauseOnHover
       />
-      
+
       <div className=" w-auto   calculator_shadow2 relative z-[9999]">
         <div className="p-5">
           <div className="flex flex-row text-sm justify-between">
@@ -104,7 +104,7 @@ const App = () => {
               <div
                 onClick={() => {
                   if (e == "=") {
-                    try{
+                    try {
                       setnum(
                         eval(
                           num1
@@ -113,10 +113,9 @@ const App = () => {
                             .replace("÷", "/")
                         )
                       );
-                    }
-                    catch(error){
-                      if(error instanceof SyntaxError){
-                      toast("🦄 error,use brain lah=)")
+                    } catch (error) {
+                      if (error instanceof SyntaxError) {
+                        toast("🦄 error,use brain lah=)");
                       }
                     }
                   } else if (e == "-" || e == "+" || e == "x") {
@@ -137,15 +136,29 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="w-full absolute -bottom-10 ">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#a8a29e"
-            fill-opacity="1"
-            d="M0,320L34.3,277.3C68.6,235,137,149,206,122.7C274.3,96,343,128,411,165.3C480,203,549,245,617,250.7C685.7,256,754,224,823,202.7C891.4,181,960,171,1029,192C1097.1,213,1166,267,1234,282.7C1302.9,299,1371,277,1406,266.7L1440,256L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
-          ></path>
-        </svg>
-      </div>
+      <div className="w-full absolute bottom-48">
+      <div class="c">
+        
+<div class="card-home ">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="bruh">
+            <path
+              fill="#a8a29e"
+              fill-opacity="1"
+              d="M0,320L34.3,277.3C68.6,235,137,149,206,122.7C274.3,96,343,128,411,165.3C480,203,549,245,617,250.7C685.7,256,754,224,823,202.7C891.4,181,960,171,1029,192C1097.1,213,1166,267,1234,282.7C1302.9,299,1371,277,1406,266.7L1440,256L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+              
+            ></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="bruh">
+            <path
+              fill="#a8a29e"
+              fill-opacity="1"
+              d="M0,320L34.3,277.3C68.6,235,137,149,206,122.7C274.3,96,343,128,411,165.3C480,203,549,245,617,250.7C685.7,256,754,224,823,202.7C891.4,181,960,171,1029,192C1097.1,213,1166,267,1234,282.7C1302.9,299,1371,277,1406,266.7L1440,256L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+              
+            ></path>
+            </svg>
+</div>
+</div>
+</div>
       <div className="absolute"></div>
       <Icon
         icon="charm:face-smile"
