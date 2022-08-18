@@ -26,7 +26,7 @@ const App = () => {
     <div
       className={`overflow-y-hidden w-full h-screen flex items-center absolute justify-center ${
         outline == 3 ? "bg-stone-300" : ""
-      } ${outline == 1 ? "bg-rose-300" : ""} ${outline == 2 ? "bg-blue-300" : ""}`}
+      } ${outline == 1 ? "bg-rose-300" : ""} ${outline == 2 ? "bg-blue-300" : ""} text-black`}
     >
       <ToastContainer
         position="top-right"
@@ -77,7 +77,7 @@ const App = () => {
               ${
                 outline == 2 ? "blue3" : ""
               }
-              w-full h-full flex items-center justify-center  aspect aspect-square`}
+              w-full h-full flex items-center justify-center  aspect aspect-square  text-black`}
             >
               <button className="" onClick={() => setnum("0")}>
                 AC
@@ -88,7 +88,7 @@ const App = () => {
                 outline == 1 ? "pink3" : ""
               }${
                 outline == 2 ? "blue3" : ""
-              } w-full h-full flex items-center justify-center  aspect aspect-square`}
+              } w-full h-full flex items-center justify-center  aspect aspect-square text-black`}
             >
               <button
                 className=""
@@ -104,7 +104,7 @@ const App = () => {
                 outline == 1 ? "pink3" : ""
               } ${
                 outline == 2 ? "blue3" : ""
-              }  w-full h-full flex items-center justify-center  aspect aspect-square`}
+              }  w-full h-full flex items-center justify-center  aspect aspect-square text-black`}
             >
               <button
                 className=""
@@ -120,7 +120,7 @@ const App = () => {
                 outline == 1 ? "pink3" : ""
               }${
                 outline == 2 ? "blue3" : ""
-              }  w-full h-full flex items-center justify-center  aspect aspect-square`}
+              }  w-full h-full flex items-center justify-center  aspect aspect-square text-black`}
             >
               <button
                 className=""
@@ -175,7 +175,7 @@ const App = () => {
                   outline == 1 ? "pink3" : ""
                 }${
                   outline == 2 ? "blue3" : ""
-                } w-full h-full flex items-center justify-center aspect aspect-square ${
+                } w-full h-full flex items-center justify-center aspect aspect-square text-black ${
                   e == "=" && "row-span-2"
                 }`}
               >
@@ -273,7 +273,7 @@ const App = () => {
           onClick={() => setoutline(3)}
           className={`${
             outline == 3 ? "border-2" : ""
-          } rounded-full border-black flex flex-fow gap-2 items-center`}
+          } rounded-full border-slate-500 flex flex-fow gap-2 items-center`}
         >
           <img src={slate} className={`h-6 w-6 md:h-8 md:w-8 rounded-full `}></img>
           <span className="text-white">orignial</span>
