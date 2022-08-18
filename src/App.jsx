@@ -248,14 +248,14 @@ const App = () => {
           outline == 1 ? "text-pink-600" : ""
         } ${
           outline == 2 ? "text-sky-700" : ""
-        }`}>color theme:</div>
+        } text-xs md:text-base`}>color theme:</div>
         <div
           onClick={() => setoutline(1)}
           className={`${
             outline == 1 ? "border-2" : ""
           } rounded-full border-slate-500`}
         >
-          <img src={pink} className={`h-8 w-8 rounded-full `}></img>
+          <img src={pink} className={`h-6 w-6 md:h-8 md:w-8 rounded-full `}></img>
         </div>
         <div
           onClick={() => setoutline(2)}
@@ -263,7 +263,7 @@ const App = () => {
             outline == 2 ? "border-2" : ""
           } rounded-full border-slate-500`}
         >
-          <img src={blue} className={`h-8 w-8 rounded-full `}></img>
+          <img src={blue} className={`h-6 w-6 md:h-8 md:w-8 rounded-full `}></img>
         </div>
         <div
           onClick={() => setoutline(3)}
@@ -271,7 +271,7 @@ const App = () => {
             outline == 3 ? "border-2" : ""
           } rounded-full border-black`}
         >
-          <img src={slate} className={`h-8 w-8 rounded-full `}></img>
+          <img src={slate} className={`h-6 w-6 md:h-8 md:w-8 rounded-full `}></img>
         </div>
       </div>
     </div>
