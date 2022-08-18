@@ -243,37 +243,43 @@ const App = () => {
       >
         made by LIMING 🧡
       </div>
-      <div className="absolute flex flex-row gap-3 right-3 top-3 items-center">
-        <div className={` ${outline == 3 ? "text-slate-500" : ""} ${
+      
+      <div class="dropdown dropdown-end absolute right-3 top-2">
+  <label tabindex="0" className={` ${outline == 3 ? "text-slate-500" : ""} ${
           outline == 1 ? "text-pink-600" : ""
         } ${
           outline == 2 ? "text-sky-700" : ""
-        } text-xs md:text-base`}>color theme:</div>
-        <div
+        }  flex flex-row items-center`} ><Icon icon="eva:color-palette-outline" className="md:h-5 md:w-5" /><div>color theme</div></label>
+  <div tabindex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+  <div
           onClick={() => setoutline(1)}
           className={`${
             outline == 1 ? "border-2" : ""
-          } rounded-full border-slate-500`}
+          } rounded-full border-slate-500 flex flex-fow gap-2 items-center`}
         >
           <img src={pink} className={`h-6 w-6 md:h-8 md:w-8 rounded-full `}></img>
+          <span className="text-white">pink theme</span>
         </div>
         <div
           onClick={() => setoutline(2)}
           className={`${
             outline == 2 ? "border-2" : ""
-          } rounded-full border-slate-500`}
+          } rounded-full border-slate-500 flex flex-fow gap-2 items-center`}
         >
           <img src={blue} className={`h-6 w-6 md:h-8 md:w-8 rounded-full `}></img>
+          <span className="text-white">blue theme</span>
         </div>
         <div
           onClick={() => setoutline(3)}
           className={`${
             outline == 3 ? "border-2" : ""
-          } rounded-full border-black`}
+          } rounded-full border-black flex flex-fow gap-2 items-center`}
         >
           <img src={slate} className={`h-6 w-6 md:h-8 md:w-8 rounded-full `}></img>
+          <span className="text-white">orignial</span>
         </div>
-      </div>
+  </div>
+  </div>
     </div>
   );
 };
