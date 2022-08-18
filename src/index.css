@@ -25,9 +25,45 @@ box-shadow: inset 24px 24px 27px #acacac,
 }
 .calculator_shadow2{
     border-radius: 39px;
-background: linear-gradient(145deg, #f0f0f0, #cacaca);
+background: linear-gradient(145deg,#f0f0f0 , #cacaca);
 box-shadow:  18px 18px 44px #696969,
              -18px -18px 44px #ffffff;
+}
+.pink2{
+  border-radius: 39px;
+background: linear-gradient(145deg, #fda4af, #fda4af);
+box-shadow:  18px 18px 44px #f43f5e,
+           -18px -18px 44px #fecdd3;
+}
+.blue2{
+  border-radius: 39px;
+background: linear-gradient(145deg, #93c5fd, #93c5fd);
+box-shadow:  18px 18px 44px #3b82f6,
+           -18px -18px 44px #dbeafe;
+}
+.blue3{
+  border-radius: 18px;
+background: linear-gradient(145deg, #93c5fd,#93c5fd);
+box-shadow:  6px 6px 12px #3b82f6,
+           -6px -6px 12px #bfdbfe;
+}
+.blue4{
+  border-radius: 24px;
+background:#93c5fd;
+box-shadow: inset 18px 18px 56px #3b82f6,
+          inset -18px -18px 56px  #bfdbfe;
+}
+.pink3{
+  border-radius: 18px;
+background: linear-gradient(145deg, #fda4af, #fda4af);
+box-shadow:  6px 6px 12px #f43f5e,
+           -6px -6px 12px #fecdd3;
+}
+.pink4{
+  border-radius: 24px;
+background: #fda4af;
+box-shadow: inset 18px 18px 56px #fb7185,
+          inset -18px -18px 56px  #fecdd3;
 }
 .calculator_shadow3{
     border-radius: 18px;
