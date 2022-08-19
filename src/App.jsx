@@ -43,7 +43,7 @@ const App = () => {
       <div
         className={`w-64 md:w-auto   ${
           outline == 3 ? "calculator_shadow2" : ""
-        } ${outline == 1 ? "pink2" : ""} ${outline == 2 ? "blue2" : ""} relative z-[9999]`}
+        } ${outline == 1 ? "pink2" : ""} ${outline == 2 ? "blue2" : ""} relative z-[9999] animate__animated animate__backInDown`}
       >
         <div className="p-5">
           <div className="flex flex-row text-sm justify-between">
@@ -236,10 +236,8 @@ const App = () => {
           outline == 1 ? "text-pink-600" : ""
         } ${
           outline == 2 ? "text-sky-700" : ""
-        } absolute bottom-10 md:bottom-48 left-2 md:left-32 animate__animated animate__lightSpeedInLeft"`}
-        onClick={() => {
-          bruh = 1;
-        }}
+        } absolute bottom-10 md:bottom-48 left-2 md:left-32 animate__animated animate__lightSpeedInLeft`}
+        
       >
         made by LIMING 🧡
       </div>
