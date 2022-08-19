@@ -152,7 +152,7 @@ const App = () => {
             ].map((e) => (
               <div
                 onClick={() => {
-                  if (e == "=") {
+                  if (e === "=") {
                     try {
                       setnum(
                         eval(
@@ -163,13 +163,16 @@ const App = () => {
                         )
                       );
                     } catch (error) {
+                      if (error instanceof SyntaxError) {
                       toast("🦄 error,use brain lah=)");
+                      }
+                      
                     }
-                  } else if (e == "-" || e == "+" || e == "x") {
+                  }else if (e == "-" || e == "+" || e == "x") {
                     setnum(num1 == "0" ? "0" : num1 + e);
                   } else if (e == ".") {
                     setnum(num1 + e);
-                  } else {
+                  }  else {
                     setnum((num1 == "0" ? "" : num1) + e);
                   }
                 }}
