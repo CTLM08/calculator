@@ -29,6 +29,7 @@ const App = () => {
       } ${outline == 1 ? "bg-rose-300" : ""} ${outline == 2 ? "bg-blue-300" : ""} text-black`}
     >
       <ToastContainer
+        className={`z-[99]`}
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -38,12 +39,13 @@ const App = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        
       />
 
       <div
         className={`w-64 md:w-auto   ${
           outline == 3 ? "calculator_shadow2" : ""
-        } ${outline == 1 ? "pink2" : ""} ${outline == 2 ? "blue2" : ""} relative z-[9999] animate__animated animate__backInDown`}
+        } ${outline == 1 ? "pink2" : ""} ${outline == 2 ? "blue2" : ""} relative z-[999] animate__animated animate__backInDown`}
       >
         <div className="p-5">
           <div className="flex flex-row text-sm justify-between">
@@ -242,13 +244,13 @@ const App = () => {
         made by LIMING 🧡
       </div>
       
-      <div class="dropdown dropdown-end absolute right-3 top-2">
-  <label tabindex="0" className={` ${outline == 3 ? "text-slate-500" : ""} ${
-          outline == 1 ? "text-pink-600" : ""
+      <div class="dropdown dropdown-end absolute right-3 top-2 z-[9999]">
+  <label tabindex="0" className={` ${outline == 3 ? "bg-slate-500" : ""} ${
+          outline == 1 ? "bg-pink-600" : ""
         } ${
-          outline == 2 ? "text-sky-700" : ""
-        }  flex flex-row items-center`} ><Icon icon="eva:color-palette-outline" className="md:h-5 md:w-5" /><div>color theme</div></label>
-  <div tabindex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          outline == 2 ? "bg-sky-700" : ""
+        }  flex flex-row items-center justify-center -z-20 w-32 h-10 md:h-12 p-1  text-center rounded-xl`} ><Icon icon="eva:color-palette-outline" className="md:h-5 md:w-5 " /><div className='text-white  '>color theme</div></label>
+  <div tabindex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52  ">
   <div
           onClick={() => setoutline(1)}
           className={`${
