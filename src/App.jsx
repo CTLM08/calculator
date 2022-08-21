@@ -157,9 +157,9 @@ const App = () => {
                       setnum(
                         eval(
                           num1
-                            .replace("x", "*")
-                            .replace("%", "/100")
-                            .replace("÷", "/")
+                            .replaceAll("x", "*")
+                            .replaceAll("%", "/100")
+                            .replaceAll("÷", "/")
                         )
                       );
                     } catch (error) {
