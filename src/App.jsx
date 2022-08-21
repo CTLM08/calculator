@@ -252,7 +252,7 @@ const App = () => {
           outline == 1 ? "bg-pink-600" : ""
         } ${
           outline == 2 ? "bg-sky-700" : ""
-        }  flex flex-row items-center justify-center -z-20 w-32 h-10 md:h-12 p-1  text-center rounded-xl`} ><Icon icon="eva:color-palette-outline" className="md:h-5 md:w-5 " /><div className='text-white  '>color theme</div></label>
+        }  flex flex-row items-center justify-center -z-20 w-32 h-10 md:h-12 p-2  text-center rounded-xl text-white`} ><Icon icon="eva:color-palette-outline" className="md:h-5 md:w-5 " /><div className='text-white  '>color theme</div></label>
   <div tabindex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52  ">
   <div
           onClick={() => setoutline(1)}
